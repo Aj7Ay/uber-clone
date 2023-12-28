@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uber-deployment
+spec:
+  replicas: 1  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: uber
+  template:
+    metadata:
+      labels:
+        app: uber
+    spec:
+      containers:
+      - name: uber
+        image: sevenajay/uber:latest
+        ports:
+        - containerPort: 3000  # Port your application listens on
+
